@@ -5,14 +5,7 @@ import java.util.*;
 public class Main {
 
    public static void main(String[] args) {
-        Campanha campanha = new Campanha();
-        Scanner doacao = new Scanner (System.in);
-        System.out.println("Doação:");
-        String txtdoacao = doacao.next();
-        System.out.println(txtdoacao);
-
-
-
-
+        Campanha campanha = new Campanha("Campanha para arrecadar alimentos perecíveis","Casa de Auxílio aos Idosos ABC",(["100kg de arroz"] ["50kg de feijão"] ["20kg de macarrão"], "30/10/2022");
+       System.out.println(campanha.);
     }
 }

@@ -3,11 +3,13 @@ import java.util.ArrayList;
 public class Campanha {
 
     protected String nome;
+    protected String entidade;
     protected ArrayList<Itens> meta;
     protected String tempo;
 
-    public Campanha(String nome, ArrayList<Itens> meta, String tempo) {
+    public Campanha(String nome,String entidade, ArrayList<Itens> meta, String tempo) {
         this.nome = nome;
+        this.entidade = entidade;
         this.meta = meta;
         this.tempo = tempo;
     }
@@ -22,6 +24,14 @@ public class Campanha {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public String getEntidade() {
+        return entidade;
+    }
+
+    public void setEntidade(String nome) {
+        this.nome = entidade;
     }
 
     public ArrayList<Itens> getMeta() {
