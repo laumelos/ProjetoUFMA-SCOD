@@ -12,6 +12,10 @@ public class Campanha {
         this.tempo = tempo;
     }
 
+    public Campanha() {
+
+    }
+
     public String getNome() {
         return nome;
     }
