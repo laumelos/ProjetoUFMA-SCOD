@@ -9,8 +9,6 @@ public class Campanha {
     protected ArrayList<Item> meta;
     protected String tempo;
 
-
-
     public void Campanha(){
 
     }
@@ -34,12 +32,14 @@ public class Campanha {
             resposta = scan.nextLine();
         }while(resposta=="1");
 
-        System.out.println("Validade: ");
+        System.out.println("Prazo: ");
         this.tempo = scan.nextLine();
     }
 
-    public void AlterarPrazo(){
-
+    public String AlterarPrazo(){
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Novo prazo: ");
+        return this.tempo = scan.nextLine();
     }
 
     public String getNomeCampanha() {

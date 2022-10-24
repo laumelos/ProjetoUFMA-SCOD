@@ -30,10 +30,24 @@ public class Main {
                 }
                 if (resposta=="2"){
                     //nome da campanha para alterar
+                    Campanha campanha = new Campanha();
+                    campanha.AlterarPrazo();
 
                     //procurar no array de campanhas **pelo nome da campanha**
 
                     //alterar a campanha
+
+                    System.out.println("Nome da campanha para alteração: ");
+                    Scanner scan = new Scanner(System.in);
+                    String nomeCampanhaAlterarPrazo = scan.nextLine();
+                    int i;
+                    for (i=0; i<=campanhas.size(); i++){
+                        if (campanha.nomeCampanha == nomeCampanhaAlterarPrazo){
+                            String novoTempo = campanha.AlterarPrazo();
+                            campanha.setTempo(novoTempo);
+                        }
+
+                    }
                 }
                 if (resposta=="3"){
                     Campanha campanha = new Campanha();
