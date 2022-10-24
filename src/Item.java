@@ -1,13 +1,14 @@
-public class Itens {
+import java.util.Scanner;
 
-    protected String nome;
-    protected int quantidade;
-    protected String unidadeMedida;
+public class Item {
 
-    public Itens(String nome, int quantidade, String unidadeMedida) {
-        this.nome = nome;
-        this.quantidade = quantidade;
-        this.unidadeMedida = unidadeMedida;
+    private String nome;
+    private String unidadeMedida;
+    private int meta;
+    private int total = 0;
+
+    public Item() {
+
     }
 
     public String getNome() {

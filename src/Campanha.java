@@ -1,44 +1,76 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Campanha {
 
-    protected String nome;
+    protected String nomeCampanha;
     protected String entidade;
-    protected ArrayList<Itens> meta;
+    protected int itensMeta;
+    protected ArrayList<Item> meta;
     protected String tempo;
 
-    public Campanha(String nome,String entidade, ArrayList<Itens> meta, String tempo) {
-        this.nome = nome;
-        this.entidade = entidade;
-        this.meta = meta;
-        this.tempo = tempo;
-    }
 
-    public Campanha() {
+
+    public void Campanha(){
 
     }
 
-    public String getNome() {
-        return nome;
+    public void CriarCampanha(){
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Nome da campanha: ");
+        this.nomeCampanha = scan.nextLine();
+
+        System.out.println("Nome da entidade: ");
+        this.entidade = scan.nextLine();
+
+        System.out.println("Meta: ");
+        String resposta;
+        do{
+            Item item = new Item();
+            item.CriarItem();
+            meta.add(item);
+
+            System.out.println("Se quiser adicionar outra meta digite 1, senão digite qualquer outra coisa");
+            resposta = scan.nextLine();
+        }while(resposta=="1");
+
+        System.out.println("Validade: ");
+        this.tempo = scan.nextLine();
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void AlterarPrazo(){
+
+    }
+
+    public String getNomeCampanha() {
+        return nomeCampanha;
+    }
+
+    public void setNomeCampanha(String nomeCampanha) {
+        this.nomeCampanha = nomeCampanha;
     }
 
     public String getEntidade() {
         return entidade;
     }
 
-    public void setEntidade(String nome) {
-        this.nome = entidade;
+    public void setEntidade(String entidade) {
+        this.entidade = entidade;
     }
 
-    public ArrayList<Itens> getMeta() {
+    public int getItensMeta() {
+        return itensMeta;
+    }
+
+    public void setItensMeta(int itensMeta) {
+        this.itensMeta = itensMeta;
+    }
+
+    public ArrayList<Item> getMeta() {
         return meta;
     }
 
-    public void setMeta(ArrayList<Itens> meta) {
+    public void setMeta(ArrayList<Item> meta) {
         this.meta = meta;
     }
 
@@ -53,7 +85,9 @@ public class Campanha {
     @Override
     public String toString() {
         return "Campanha{" +
-                "nome='" + nome + '\'' +
+                "nomeCampanha='" + nomeCampanha + '\'' +
+                ", entidade='" + entidade + '\'' +
+                ", itensMeta=" + itensMeta +
                 ", meta=" + meta +
                 ", tempo='" + tempo + '\'' +
                 '}';

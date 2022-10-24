@@ -4,18 +4,12 @@ import java.lang.*;
 public class Doacao {
 
     protected String pessoa;
+    protected Item nome;
+    protected Item quantidade;
+    protected Item unidadeMedida;
 
-    protected String entidade;
-    protected Itens nome;
-    protected Itens quantidade;
-    protected Itens unidadeMedida;
+    public Doacao() {
 
-    public Doacao(String pessoa, String entidade, Itens nome, Itens quantidade, Itens unidadeMedida) {
-        this.pessoa = pessoa;
-        this.entidade = entidade;
-        this.nome = nome;
-        this.quantidade = quantidade;
-        this.unidadeMedida = unidadeMedida;
     }
 
     public String getPessoa() {
@@ -26,40 +20,33 @@ public class Doacao {
         this.pessoa = pessoa;
     }
 
-    public String getEntidade() {
-        return pessoa;
-    }
 
-    public void setEntidade(String entidade) {
-        this.pessoa = pessoa;
-    }
-
-    public Itens getNome() {
+    public Item getNome() {
         return nome;
     }
 
-    public void setNome(Itens nome) {
+    public void setNome(Item nome) {
         this.nome = nome;
     }
 
-    public Itens getQuantidade() {
+    public Item getQuantidade() {
         return quantidade;
     }
 
-    public void setQuantidade(Itens quantidade) {
+    public void setQuantidade(Item quantidade) {
         this.quantidade = quantidade;
     }
 
-    public Itens getUnidadeMedida() {
+    public Item getUnidadeMedida() {
         return unidadeMedida;
     }
 
-    public void setUnidadeMedida(Itens unidadeMedida) {
+    public void setUnidadeMedida(Item unidadeMedida) {
         this.unidadeMedida = unidadeMedida;
     }
 
 
-    public static void doar(String pessoa, Itens nome, Itens quantidade, Itens unidadeMedida) {
+    public static void doar(String pessoa, Item nome, Item quantidade, Item unidadeMedida) {
         String[]nomeItem = {};
         System.out.println(nomeItem);
 
