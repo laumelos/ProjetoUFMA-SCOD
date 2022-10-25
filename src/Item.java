@@ -11,27 +11,24 @@ public class Item {
 
     }
 
-    public String getNome() {
-        return nome;
+    public void CriarItem(){
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Nome do item: ");
+        this.nome = scan.nextLine();
+
+        System.out.println("Unidade de medida: ");
+        this.unidadeMedida = scan.nextLine();
+
+        System.out.println("Meta do item: ");
+        this.meta = scan.nextInt();
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public int getQuantidade() {
-        return quantidade;
-    }
-
-    public void setQuantidade(int quantidade) {
-        this.quantidade = quantidade;
-    }
-
-    public String getUnidadeMedida() {
-        return unidadeMedida;
-    }
-
-    public void setUnidadeMedida(String unidadeMedida) {
-        this.unidadeMedida = unidadeMedida;
+    @Override
+    public String toString() {
+        return "Item{" +
+                "nome='" + nome + " " + unidadeMedida + '\'' +
+                ", meta=" + meta +
+                ", Quantidade arrecadada=" + total +
+                '}';
     }
 }
