@@ -36,10 +36,17 @@ public class Campanha {
         this.tempo = scan.nextLine();
     }
 
-    public String AlterarPrazo(){
+    public void AlterarPrazo(){
         Scanner scan = new Scanner(System.in);
         System.out.println("Novo prazo: ");
-        return this.tempo = scan.nextLine();
+        this.tempo = scan.nextLine();
+    }
+
+    public void Andamento(){
+
+    }
+    public void EncerrarCampanha(){
+
     }
 
     public String getNomeCampanha() {
