@@ -1,17 +1,19 @@
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Campanha {
 
-    protected String nomeCampanha;
-    protected String entidade;
-    protected int itensMeta;
-    protected ArrayList<Item> meta;
-    protected String tempo;
+    private String nomeCampanha;
+    private String entidade;
+    private int itensMeta;
+    private ArrayList<Item> meta = new ArrayList<Item>();
+    private String tempo;
 
-    public void Campanha(){
+    //public void Campanha(){
 
-    }
+    //}
+
 
     public void CriarCampanha(){
         Scanner scan = new Scanner(System.in);
@@ -30,7 +32,7 @@ public class Campanha {
 
             System.out.println("Se quiser adicionar outra meta digite 1, senão digite qualquer outra coisa");
             resposta = scan.nextLine();
-        }while(resposta=="1");
+        }while(Objects.equals(resposta, "1"));
 
         System.out.println("Prazo: ");
         this.tempo = scan.nextLine();

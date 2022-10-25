@@ -1,34 +1,55 @@
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Item {
 
-    private String nome;
-    private String unidadeMedida;
-    private int meta;
-    private int total = 0;
+    protected String nome;
+    protected String quantidade;
+    //private int meta;
+    protected int total = 0;
 
-    public Item() {
-
+    public Item(String nome, String quantidade) {
+        this.nome = nome;
+        this.quantidade= quantidade;
     }
+    public Item() {
+    }
+
 
     public void CriarItem(){
         Scanner scan = new Scanner(System.in);
         System.out.println("Nome do item: ");
         this.nome = scan.nextLine();
 
-        System.out.println("Unidade de medida: ");
-        this.unidadeMedida = scan.nextLine();
+        System.out.println("Quantidade: ");
+        this.quantidade = scan.nextLine();
 
-        System.out.println("Meta do item: ");
-        this.meta = scan.nextInt();
     }
 
-    @Override
-    public String toString() {
-        return "Item{" +
-                "nome='" + nome + " " + unidadeMedida + '\'' +
-                ", meta=" + meta +
-                ", Quantidade arrecadada=" + total +
-                '}';
+    public String getNome() {
+        return nome;
     }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(String quantidade) {
+        this.quantidade = quantidade;
+    }
+
+    public int getTotal() {
+        return total;
+    }
+
+    public void setTotal(int total) {
+        this.total = total;
+    }
+
+
 }
+

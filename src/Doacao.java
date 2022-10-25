@@ -1,15 +1,48 @@
+import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Scanner;
 import java.lang.*;
 
 public class Doacao {
 
-    protected String pessoa;
-    protected Item nome;
-    protected Item quantidade;
-    protected Item unidadeMedida;
+    private String pessoa;
+    private String nomeItem;
+    private String quantidade;
 
-    public Doacao() {
+    ArrayList<Item> estoque = new ArrayList<Item>();
 
+    public void Doacao(){
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Pessoa: ");
+        this.pessoa = scan.nextLine();
+
+        String resposta;
+        do{
+
+            System.out.println("Tipo do item: ");
+            System.out.println("1 - alimento");
+            System.out.println("2 - roupa");
+            System.out.println("3 - limpeza");
+            System.out.println("4 - construção");
+            String tipo = scan.nextLine();
+
+            if (tipo.equals("1")){
+                Item item = new ItemAlimento();
+                estoque.add(item);
+            }else if(tipo.equals("2")){
+                Item item = new ItemRoupa();
+                estoque.add(item);
+            }else if(tipo.equals("3")){
+                Item item = new ItemLimpeza();
+                estoque.add(item);
+            }else if(tipo.equals("4")){
+                Item item = new ItemConstrucao();
+                estoque.add(item);
+            }
+            System.out.println(estoque.size());
+            System.out.println("Se quiser doar outro item digite 1, senão digite qualquer outra coisa");
+            resposta = scan.nextLine();
+        }while(Objects.equals(resposta, "1"));
     }
 
     public String getPessoa() {
@@ -20,56 +53,37 @@ public class Doacao {
         this.pessoa = pessoa;
     }
 
-
-    public Item getNome() {
-        return nome;
+    public String getNomeItem() {
+        return nomeItem;
     }
 
-    public void setNome(Item nome) {
-        this.nome = nome;
+    public void setNomeItem(String nomeItem) {
+        this.nomeItem = nomeItem;
     }
 
-    public Item getQuantidade() {
+    public String getQuantidade() {
         return quantidade;
     }
 
-    public void setQuantidade(Item quantidade) {
+    public void setQuantidade(String quantidade) {
         this.quantidade = quantidade;
     }
 
-    public Item getUnidadeMedida() {
-        return unidadeMedida;
+    public ArrayList<Item> getEstoque() {
+        return estoque;
     }
 
-    public void setUnidadeMedida(Item unidadeMedida) {
-        this.unidadeMedida = unidadeMedida;
+    public void setEstoque(ArrayList<Item> estoque) {
+        this.estoque = estoque;
     }
 
-
-    public static void doar(String pessoa, Item nome, Item quantidade, Item unidadeMedida) {
-        String[]nomeItem = {};
-        System.out.println(nomeItem);
-
-        nomeItem = addItens(nomeItem);
-    }
-
-    //add palavra ao array
-    public static String[] addItens(String[] nomeItem){
-
-        //novo array com novo tamanho
-        String[]maisNomeitem = new String[nomeItem.length+1];
-
-        //copiar elementos do array original
-        for(int i = 0; i < nomeItem.length; i++){
-            maisNomeitem[i] = nomeItem[i];
-        }
-        Scanner scanP = new Scanner (System.in);
-
-        System.out.println("new Nome:");
-        maisNomeitem[maisNomeitem.length - 1] = scanP.nextLine();
-
-        return maisNomeitem;
-
-
+    @Override
+    public String toString() {
+        return "Doacao{" +
+                "pessoa='" + pessoa + '\'' +
+                ", nomeItem='" + nomeItem + '\'' +
+                ", quantidade='" + quantidade + '\'' +
+                ", estoque=" + estoque +
+                '}';
     }
 }

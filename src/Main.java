@@ -4,9 +4,11 @@ import java.util.Scanner;
 
 public class Main {
 
-    ArrayList<Campanha>campanhas = new ArrayList<Campanha>();
-    public void main(String[] args) {
-        while (true)
+    public static void main(String[] args) {
+        boolean scod = true;
+        ArrayList<Campanha>campanhas = new ArrayList<Campanha>();
+
+        while (scod)
             try{
                 Scanner scanP = new Scanner (System.in);
                 System.out.println("bem vindo blablabla");
@@ -14,21 +16,23 @@ public class Main {
                 System.out.println("1 - campanha");
                 System.out.println("2 - doacao");
                 System.out.println("3 - usuario");
+                System.out.println("qualquer outra coisa - sair do programa");
+
 
                 String resposta = scanP.nextLine();
-                if (resposta == "1"){
+                if (Objects.equals(resposta, "1")){
                     System.out.println("1 - criar campanha");
                     System.out.println("2 - alterar prazo da campanha");
                     System.out.println("3 - andamento campanha");
                     System.out.println("4 - encerrar campanha");
                     resposta = scanP.nextLine();
 
-                    if (resposta=="1"){
+                    if (Objects.equals(resposta, "1")){
                         Campanha campanha = new Campanha();
                         campanha.CriarCampanha();
-                        this.campanhas.add(campanha);
-                    }
-                    if (resposta=="2"){
+                        campanhas.add(campanha);
+                        System.out.println(campanha);
+                    }else if (Objects.equals(resposta, "2")){
                         Scanner scan = new Scanner(System.in);
                         //nome da campanha para alterar
                         System.out.println("Nome da campanha para alteração: ");
@@ -37,40 +41,47 @@ public class Main {
 
                         //alterar a campanha
                         for (Campanha campanha:campanhas){
-                            if (campanha.getNomeCampanha() == nomeCampanhaAlterarPrazo){
+                            if (Objects.equals(campanha.getNomeCampanha(), nomeCampanhaAlterarPrazo)){
                                 campanha.AlterarPrazo();
                             }
                         }
-                    }
-                    if (resposta=="3"){
+                    }else if (Objects.equals(resposta, "3")){
                         Scanner scan = new Scanner(System.in);
                         //nome da campanha para alterar
                         System.out.println("Nome da campanha para buscar o andamento: ");
                         String nomeCampanhaAcompanharAndamento = scan.nextLine();
                         for (Campanha campanha:campanhas){
-                            if (campanha.getNomeCampanha() == nomeCampanhaAcompanharAndamento){
+                            if (Objects.equals(campanha.getNomeCampanha(), nomeCampanhaAcompanharAndamento)){
                                 campanha.Andamento();
                             }
                         }
-                    }
-                    if (resposta=="4"){
+                    }else if (Objects.equals(resposta, "4")){
                         Scanner scan = new Scanner(System.in);
                         //nome da campanha para alterar
                         System.out.println("Nome da campanha para encerramento: ");
                         String nomeCampanhaAcompanharAndamento = scan.nextLine();
                         for (Campanha campanha:campanhas){
-                            if (campanha.getNomeCampanha() == nomeCampanhaAcompanharAndamento){
+                            if (Objects.equals(campanha.getNomeCampanha(), nomeCampanhaAcompanharAndamento)){
                                 campanha.EncerrarCampanha();
                             }
                         }
+                    } else if (Objects.equals(resposta, "5")) {
+                        for (Campanha campanha : campanhas){
+                            System.out.println(campanha.toString());
+                        }
                     }
-                }else if(resposta =="2") {
+
+                }else if(Objects.equals(resposta, "2")) {
                     Doacao doacao = new Doacao();
-                }else if (resposta =="3"){
+                    doacao.Doacao();
+                }else if (Objects.equals(resposta, "3")){
                     User user = new User();
                 }
+                else{
+                    scod = false;
+                }
 
-            }catch (Exception e){
+            }catch (Exception ignored){
             }
     }
 }
