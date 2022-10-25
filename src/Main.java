@@ -25,6 +25,7 @@ public class Main {
                     System.out.println("2 - alterar prazo da campanha");
                     System.out.println("3 - andamento campanha");
                     System.out.println("4 - encerrar campanha");
+                    System.out.println("5 - listar campanhas");
                     resposta = scanP.nextLine();
 
                     if (Objects.equals(resposta, "1")){

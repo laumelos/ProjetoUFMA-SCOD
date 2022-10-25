@@ -26,9 +26,24 @@ public class Campanha {
         System.out.println("Meta: ");
         String resposta;
         do{
-            Item item = new Item();
-            item.CriarItem();
+            System.out.println("Tipo do item: ");
+            System.out.println("1 - alimento");
+            System.out.println("2 - roupa");
+            System.out.println("3 - limpeza");
+            System.out.println("4 - construção");
+            String tipo = scan.nextLine();
+            Item item;
+            if (tipo.equals("1")){
+                item = new ItemAlimento();
+            }else if(tipo.equals("2")){
+                item = new ItemRoupa();
+            }else if(tipo.equals("3")){
+                item = new ItemLimpeza();
+            }else{
+                item = new ItemConstrucao();
+            }
             meta.add(item);
+            System.out.println(meta.size());
 
             System.out.println("Se quiser adicionar outra meta digite 1, senão digite qualquer outra coisa");
             resposta = scan.nextLine();
@@ -93,12 +108,8 @@ public class Campanha {
 
     @Override
     public String toString() {
-        return "Campanha{" +
-                "nomeCampanha='" + nomeCampanha + '\'' +
-                ", entidade='" + entidade + '\'' +
-                ", itensMeta=" + itensMeta +
+        return "nomeCampanha='" + nomeCampanha + '\'' + ", entidade='" + entidade + '\'' + ", itensMeta=" + itensMeta +
                 ", meta=" + meta +
-                ", tempo='" + tempo + '\'' +
-                '}';
+                ", tempo='" + tempo ;
     }
 }
