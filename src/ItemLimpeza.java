@@ -10,6 +10,7 @@ public class ItemLimpeza extends Item{
         this.CriarItem();
         Scanner scan = new Scanner(System.in);
         System.out.println("Unidade de medida: ");
+        while (scan.hasNextInt()) scan.next();
         this.unidadeMedida = scan.nextLine();
 
         System.out.println("Esse produto é tóxico? (sim/nao): ");

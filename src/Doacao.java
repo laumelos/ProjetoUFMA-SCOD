@@ -8,7 +8,6 @@ public class Doacao {
     private String pessoa;
     private String nomeItem;
     private int quantidade;
-    protected int itensDoados;
 
     ArrayList<Item> estoque = new ArrayList<Item>();
 
@@ -49,8 +48,6 @@ public class Doacao {
                 item = new ItemConstrucao();
             }
             estoque.add(item);
-            itensDoados ++;
-            System.out.println(itensDoados);
             System.out.println("Se quiser doar outro item digite 1, senão digite qualquer outra coisa");
             resposta = scan.nextLine();
         }while(Objects.equals(resposta, "1"));

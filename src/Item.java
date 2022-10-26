@@ -17,23 +17,20 @@ public class Item {
     }
 
 
-    public void CriarItem(){
+    public void CriarItem() {
         Scanner scan = new Scanner(System.in);
 
-        //try {
-            System.out.println("Nome do item: ");
-            this.nome = scan.nextLine();
-            //}catch();
-        try {
-        System.out.println("Quantidade: ");
-        this.quantidade = scan.nextInt();
-        }catch(NumberFormatException e){
-            System.out.println("Opção inválida, digite a quantidade: ");
-        }
+        System.out.println("Nome do item: ");
+        while (scan.hasNextInt()) scan.next();
+        this.nome = scan.nextLine();
 
+        System.out.println("Quantidade: ");
+        while (!scan.hasNextInt()) scan.next();
+        quantidade = scan.nextInt();
     }
-    public void Adicionar(int quantidade){
-        this.total = quantidade;
+
+    public void Adicionar(){
+        this.total =  this.quantidade ;
     }
 
     public String getNome() {
