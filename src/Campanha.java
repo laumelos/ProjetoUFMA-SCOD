@@ -68,7 +68,10 @@ public class Campanha {
 
     public void Andamento(){
         for (Item item:meta){
-            System.out.println(item.nome+ " : " + item.quantidade + "/" + item.total);
+            System.out.println(item.nome+ " : "+ (item.getTotal() - item.quantidade) + "/" + item.quantidade);
+            if (item.total == item.quantidade){
+                System.out.println(item.nome + "Teve meta batida");
+            }
     }}
 
     public String getNomeCampanha() {

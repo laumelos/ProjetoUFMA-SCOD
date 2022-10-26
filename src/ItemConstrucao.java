@@ -6,6 +6,7 @@ public class ItemConstrucao extends Item{
 
     public ItemConstrucao() {
         this.CriarItem();
+        this.Adicionar(quantidade);
         Scanner scan = new Scanner(System.in);
         System.out.println("Unidade de medida: ");
         while (scan.hasNextInt()) scan.next();

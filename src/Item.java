@@ -32,6 +32,9 @@ public class Item {
     public void Adicionar(){
         this.total =  this.quantidade ;
     }
+    public void Adicionar(int quantidade){
+        this.total =  quantidade ;
+    }
 
     public String getNome() {
         return nome;

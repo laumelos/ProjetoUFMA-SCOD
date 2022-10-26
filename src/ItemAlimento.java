@@ -9,7 +9,7 @@ public class ItemAlimento extends Item{
     public ItemAlimento() {
         Scanner scan = new Scanner(System.in);
         this.CriarItem();
-
+        this.Adicionar(quantidade);
         System.out.println("É perecível? (sim/nao): ");
         this.perecivel = scan.nextLine();
         boolean testePerecivel = false;

@@ -8,6 +8,7 @@ public class ItemRoupa extends Item{
 
     public ItemRoupa() {
         this.CriarItem();
+        this.Adicionar(quantidade);
         Scanner scan = new Scanner(System.in);
         System.out.println("Tamanho da Roupa (P/M/G): ");
         this.tamanho = scan.nextLine();
