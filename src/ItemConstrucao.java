@@ -10,4 +10,9 @@ public class ItemConstrucao extends Item{
         System.out.println("Unidade de medida: ");
         this.unidadeMedida = scan.nextLine();
     }
+
+    @Override
+    public String toString() {
+        return "Tipo: Construção, " + "Itens: " + quantidade + ' ' + unidadeMedida + " de " + nome + "|";
+    }
 }

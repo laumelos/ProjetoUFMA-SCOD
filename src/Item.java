@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -18,9 +19,12 @@ public class Item {
 
     public void CriarItem(){
         Scanner scan = new Scanner(System.in);
-        System.out.println("Nome do item: ");
-        this.nome = scan.nextLine();
 
+        //try {
+            System.out.println("Nome do item: ");
+            this.nome = scan.nextLine();
+            //}catch();
+        try {
         System.out.println("Quantidade: ");
         this.quantidade = scan.nextLine();
 
