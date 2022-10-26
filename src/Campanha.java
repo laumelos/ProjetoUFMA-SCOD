@@ -68,7 +68,7 @@ public class Campanha {
 
     public void Andamento(){
         for (Item item:meta){
-            System.out.println(item.nome+ " : " + item.total + "/");
+            System.out.println(item.nome+ " : " + item.quantidade + "/" + item.total);
     }}
 
     public String getNomeCampanha() {
