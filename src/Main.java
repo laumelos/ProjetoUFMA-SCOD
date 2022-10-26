@@ -7,12 +7,14 @@ public class Main {
     public static void main(String[] args) {
         boolean scod = true;
         ArrayList<Campanha>campanhas = new ArrayList<Campanha>();
+        ArrayList<Doacao>docaoes = new ArrayList<Doacao>();
+        ArrayList<User>users = new ArrayList<User>();
 
         while (scod)
             try{
                 Scanner scanP = new Scanner (System.in);
-                System.out.println("bem vindo blablabla");
-
+                System.out.println("Bem vindo ao Sistema para Coleta e Organização de Doações");
+                System.out.println("Digite a operação que você deseja realizar");
                 System.out.println("1 - campanha");
                 System.out.println("2 - doacao");
                 System.out.println("3 - usuario");
@@ -27,6 +29,18 @@ public class Main {
                     System.out.println("4 - encerrar campanha");
                     System.out.println("5 - listar campanhas");
                     resposta = scanP.nextLine();
+
+                    if (!(Objects.equals(resposta, "1") || Objects.equals(resposta, "2") || Objects.equals(resposta, "3") || Objects.equals(resposta, "4") || Objects.equals(resposta, "5"))){
+                        do{
+                            System.out.println("Comando inválido, igite '1' '2' '3' '4' ou '5' para escolher a opção: ");
+                            System.out.println("1 - criar campanha");
+                            System.out.println("2 - alterar prazo da campanha");
+                            System.out.println("3 - andamento campanha");
+                            System.out.println("4 - encerrar campanha");
+                            System.out.println("5 - listar campanhas");
+                            resposta = scanP.nextLine();
+                        }while(!(Objects.equals(resposta, "1") || Objects.equals(resposta, "2") || Objects.equals(resposta, "3") || Objects.equals(resposta, "4") || Objects.equals(resposta, "5")));
+                    }
 
                     if (Objects.equals(resposta, "1")){
                         Campanha campanha = new Campanha();
@@ -75,8 +89,13 @@ public class Main {
                 }else if(Objects.equals(resposta, "2")) {
                     Doacao doacao = new Doacao();
                     doacao.Doacao();
+                    docaoes.add(doacao);
+                    System.out.println(doacao);
+
                 }else if (Objects.equals(resposta, "3")){
                     User user = new User();
+                    user.CriarUser();
+                    users.add(user);
                 }
                 else{
                     scod = false;

@@ -2,18 +2,13 @@ import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
 
+
 public class Campanha {
 
     private String nomeCampanha;
     private String entidade;
-    private int itensMeta;
     private ArrayList<Item> meta = new ArrayList<Item>();
     private String tempo;
-
-    //public void Campanha(){
-
-    //}
-
 
     public void CriarCampanha(){
         Scanner scan = new Scanner(System.in);
@@ -23,15 +18,26 @@ public class Campanha {
         System.out.println("Nome da entidade: ");
         this.entidade = scan.nextLine();
 
-        System.out.println("Meta: ");
         String resposta;
         do{
-            System.out.println("Tipo do item: ");
+            System.out.println("O que você pretende arrecadar?: ");
             System.out.println("1 - alimento");
             System.out.println("2 - roupa");
             System.out.println("3 - limpeza");
             System.out.println("4 - construção");
             String tipo = scan.nextLine();
+
+            if (!(Objects.equals(tipo, "1") || Objects.equals(tipo, "2") || Objects.equals(tipo, "3") || Objects.equals(tipo, "4"))){
+                do{
+                    System.out.println("Comando inválido, digite '1' '2' '3' ou '4' para o que você pretende arrecadar: ");
+                    System.out.println("1 - alimento");
+                    System.out.println("2 - roupa");
+                    System.out.println("3 - limpeza");
+                    System.out.println("4 - construção");
+                    tipo = scan.nextLine();
+                }while(!(Objects.equals(tipo, "1") || Objects.equals(tipo, "2") || Objects.equals(tipo, "3") || Objects.equals(tipo, "4")));
+            }
+
             Item item;
             if (tipo.equals("1")){
                 item = new ItemAlimento();
@@ -42,8 +48,9 @@ public class Campanha {
             }else{
                 item = new ItemConstrucao();
             }
+
             meta.add(item);
-            System.out.println(meta.size());
+            System.out.println("Sua campanha tem " + meta.size() + " meta");
 
             System.out.println("Se quiser adicionar outra meta digite 1, senão digite qualquer outra coisa");
             resposta = scan.nextLine();
@@ -82,14 +89,6 @@ public class Campanha {
         this.entidade = entidade;
     }
 
-    public int getItensMeta() {
-        return itensMeta;
-    }
-
-    public void setItensMeta(int itensMeta) {
-        this.itensMeta = itensMeta;
-    }
-
     public ArrayList<Item> getMeta() {
         return meta;
     }
@@ -108,8 +107,6 @@ public class Campanha {
 
     @Override
     public String toString() {
-        return "nomeCampanha='" + nomeCampanha + '\'' + ", entidade='" + entidade + '\'' + ", itensMeta=" + itensMeta +
-                ", meta=" + meta +
-                ", tempo='" + tempo ;
+        return "Campanha: " + nomeCampanha + ", " + "Entidade: " + entidade + ", " + "Meta:" + meta.toString() + ", Data final da campanha :" + tempo;
     }
 }
