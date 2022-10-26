@@ -2,7 +2,6 @@ import java.util.Scanner;
 
 public class User {
     private String nome;
-
     public User() {}
 
     public void CriarUser(){
