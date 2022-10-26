@@ -5,11 +5,11 @@ import java.util.Scanner;
 public class Item {
 
     protected String nome;
-    protected String quantidade;
+    protected int quantidade;
     //private int meta;
     protected int total = 0;
 
-    public Item(String nome, String quantidade) {
+    public Item(String nome, int quantidade) {
         this.nome = nome;
         this.quantidade= quantidade;
     }
@@ -26,8 +26,14 @@ public class Item {
             //}catch();
         try {
         System.out.println("Quantidade: ");
-        this.quantidade = scan.nextLine();
+        this.quantidade = scan.nextInt();
+        }catch(NumberFormatException e){
+            System.out.println("Opção inválida, digite a quantidade: ");
+        }
 
+    }
+    public void Adicionar(int quantidade){
+        this.total = quantidade;
     }
 
     public String getNome() {
@@ -38,11 +44,11 @@ public class Item {
         this.nome = nome;
     }
 
-    public String getQuantidade() {
+    public int getQuantidade() {
         return quantidade;
     }
 
-    public void setQuantidade(String quantidade) {
+    public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
     }
 

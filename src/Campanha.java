@@ -67,11 +67,9 @@ public class Campanha {
     }
 
     public void Andamento(){
-
-    }
-    public void EncerrarCampanha(){
-
-    }
+        for (Item item:meta){
+            System.out.println(item.nome+ " : " + item.total + "/");
+    }}
 
     public String getNomeCampanha() {
         return nomeCampanha;

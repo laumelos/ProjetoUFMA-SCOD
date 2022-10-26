@@ -58,11 +58,12 @@ public class Main {
                         for (Campanha campanha:campanhas){
                             if (Objects.equals(campanha.getNomeCampanha(), nomeCampanhaAlterarPrazo)){
                                 campanha.AlterarPrazo();
+                                System.out.println(campanha);
                             }
                         }
                     }else if (Objects.equals(resposta, "3")){
                         Scanner scan = new Scanner(System.in);
-                        //nome da campanha para alterar
+                        //nome da campanha para buscar o andamento
                         System.out.println("Nome da campanha para buscar o andamento: ");
                         String nomeCampanhaAcompanharAndamento = scan.nextLine();
                         for (Campanha campanha:campanhas){
@@ -77,12 +78,13 @@ public class Main {
                         String nomeCampanhaAcompanharAndamento = scan.nextLine();
                         for (Campanha campanha:campanhas){
                             if (Objects.equals(campanha.getNomeCampanha(), nomeCampanhaAcompanharAndamento)){
-                                campanha.EncerrarCampanha();
+                                campanhas.remove(campanha);
                             }
                         }
                     } else if (Objects.equals(resposta, "5")) {
                         for (Campanha campanha : campanhas){
                             System.out.println(campanha.toString());
+                            System.out.println(campanhas);
                         }
                     }
 
